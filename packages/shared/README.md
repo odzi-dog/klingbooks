@@ -1,1 +1,0 @@
-# teleooks shared

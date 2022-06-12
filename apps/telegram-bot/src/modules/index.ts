@@ -1,1 +1,1 @@
-export * from './TestCommand/module';
+export * from './Bot/module';

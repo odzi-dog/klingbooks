@@ -1,12 +1,12 @@
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { Bot } from 'grammy';
-import { OnBotCommand } from "../types/actions/OnBotCommand";
+import { OnBotCommand } from "../types";
 import { MODULE_CONFIG_PROVIDER } from "../types/constants";
 import { IModuleOptions } from "../types/interfaces";
 
 @Injectable()
 export class BotInstanceService {
-  private instance: Bot;
+  public instance: Bot;
   private commands: OnBotCommand[] = [];
 
   private logger = new Logger(BotInstanceService.name);
@@ -17,18 +17,10 @@ export class BotInstanceService {
   ) {
     this.instance = new Bot(this.options.token);
 
-    this.instance.api.setChatMenuButton({
-      menu_button: {
-        type: 'web_app',
-        text: 'Hello there!',
-        web_app: {
-          url: 'https://google.com/'
-        }
-      }
-    });
-
     // Creating bot listeners
     this.instance.on('message', async (ctx) => {
+      console.log('received bot message', ctx);
+      
       if (ctx.update?.message?.text) {
         // Finding command with this pattern
         const command = ctx.update?.message?.text.replace('/', '');

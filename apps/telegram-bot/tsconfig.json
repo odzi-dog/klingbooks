@@ -19,13 +19,13 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@shared": ["../../packages/shared/src"],
-      "@shared/*": ["../../packages/shared/src/*"],
+      "@bot": ["../../packages/telegram-nestjs-bot/src"],
+      "@bot/*": ["../../packages/telegram-nestjs-bot/src/*"],
     }
   },
   "references": [
     {
-      "path": "../../packages/shared"
+      "path": "../../packages/telegram-nestjs-bot"
     }
   ]
 }

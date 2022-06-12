@@ -1,12 +1,12 @@
 import { Module } from "@nestjs/common";
-import { TelegramWrapperModule } from "@shared/modules"
+import { TelegramWrapperModule } from "@bot"
 
 import * as Modules from '../';
 
 @Module({
   imports: [
     TelegramWrapperModule.register({
-      token: "2200749638:AAFqfmiNIbsjElETCVxF_Jf4zpe4RvWwHlA",
+      token: "5395989861:AAFNtama04oOxwwEn_9CdSw00KRAayqMYz4",
     }),
 
     ...Object.values(Modules)
